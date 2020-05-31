@@ -8,7 +8,7 @@ import '../../app_module.dart';
 class GamesBloc extends BlocBase {
   var _repository = AppModule.to.getDependency<GamesRepository>();
   String _documentId;
-  String _nome, _gameTiposId, _plataforma;
+  String _nome, _gameTiposId, _gameStatusId, _plataforma;
   DateTime _dataAtualizacao;
 
   GamesBloc() {
@@ -16,6 +16,8 @@ class GamesBloc extends BlocBase {
     _gameTiposIdController.listen((value) => _gameTiposId = value);
     _plataformaController.listen((value) => _plataforma = value);
     _dataAtualizacaoController.listen((value) => _dataAtualizacao = value);
+    _gameStatusIdController.listen((value) => _gameStatusId = value);
+
   }
 
   // Nome
@@ -28,6 +30,12 @@ class GamesBloc extends BlocBase {
   Stream<String> get outGameTiposId => _gameTiposIdController.stream;
   String get outGameTiposIdValue => _gameTiposIdController.stream.value;
   void setGameTiposId(String value) => _gameTiposIdController.sink.add(value);
+
+    // GameStatusId
+  var _gameStatusIdController = BehaviorSubject<String>();
+  Stream<String> get outGameStatusId => _gameStatusIdController.stream;
+  String get outGameStatusIdValue => _gameStatusIdController.stream.value;
+  void setGameStatusId(String value) => _gameStatusIdController.sink.add(value);
 
   // Sexo
   var _plataformaController = BehaviorSubject<String>();
@@ -50,6 +58,7 @@ class GamesBloc extends BlocBase {
     setNome(games.nome);
     setDataAtualizacao(games.dataAtualizacao);
     setGameTiposId(games.gameTiposId);
+    setGameStatusId(games.gameStatusId);
     setPlataforma(games.plataforma);
   }
 
@@ -57,6 +66,7 @@ class GamesBloc extends BlocBase {
     var _games = Games()
       ..nome = _nome
       ..gameTiposId = _gameTiposId
+      ..gameStatusId = _gameStatusId
       ..plataforma = _plataforma
       ..dataAtualizacao = _dataAtualizacao;
 

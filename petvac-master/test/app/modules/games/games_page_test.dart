@@ -6,8 +6,8 @@ import 'package:petvac/app/modules/games/games_page.dart';
 
 main() {
   testWidgets('GamesPage has title', (WidgetTester tester) async {
-    //  await tester.pumpWidget(buildTestableWidget(PetsPage(title: 'Pets')));
-    //  final titleFinder = find.text('Pets');
-    //  expect(titleFinder, findsOneWidget);
+      await tester.pumpWidget(buildTestableWidget(GamesPage(title: 'Games')));
+      final titleFinder = find.text('Games');
+      expect(titleFinder, findsOneWidget);
   });
 }

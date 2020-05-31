@@ -6,8 +6,8 @@ import 'package:petvac/app/modules/logon/logon_page.dart';
 
 main() {
   testWidgets('LogonPage has title', (WidgetTester tester) async {
-    //  await tester.pumpWidget(buildTestableWidget(LogonPage(title: 'Logon')));
-    //  final titleFinder = find.text('Logon');
-    //  expect(titleFinder, findsOneWidget);
+      await tester.pumpWidget(buildTestableWidget(LogonPage(title: 'Login')));
+      final titleFinder = find.text('Login');
+      expect(titleFinder, findsOneWidget);
   });
 }

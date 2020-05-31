@@ -9,12 +9,12 @@ void main() {
   GamesBloc bloc;
 
   // setUp(() {
-  //     bloc = PetsModule.to.bloc<PetsBloc>();
+  //     bloc = GamesModule.to.bloc<GamesBloc>();
   // });
 
-  // group('PetsBloc Test', () {
+  // group('GamesBloc Test', () {
   //   test("First Test", () {
-  //     expect(bloc, isInstanceOf<PetsBloc>());
+  //     expect(bloc, isInstanceOf<GamesBloc>());
   //   });
   // });
 }

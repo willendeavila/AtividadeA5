@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:petvac/app/modules/gamestatus/gamestatus_page.dart';
 import 'package:petvac/app/modules/home/home_module.dart';
 import 'package:petvac/app/modules/home/home_page.dart';
 import 'package:petvac/app/modules/logon/logon_page.dart';
@@ -17,6 +18,8 @@ class AppWidget extends StatelessWidget {
         Routes.gameTipos: (context) => GameTiposPage(),
         Routes.games: (context) => GamesPage(),
         Routes.logon: (context) => LogonPage(),
+        Routes.gameStatus: (context) => GameStatusPage(),
+
       },
       title: 'Flutter Slidy',
       theme: ThemeData(

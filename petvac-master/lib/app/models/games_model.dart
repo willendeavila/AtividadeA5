@@ -6,9 +6,10 @@ class Games extends BaseModel {
   static const String NOME = "nome",
       DATA_ATUALIZACAO = "data_atualizacao",
       GAMETIPOS_ID = "gametipos_id",
+      GAMESTATUS_ID = "gamestatus_id",
       PLATAFORMA = "plataforma";
   String _documentId;
-  String nome, gameTiposId, plataforma;
+  String nome, gameTiposId, gameStatusId, plataforma;
   DateTime dataAtualizacao;
 
   Games();
@@ -27,6 +28,7 @@ class Games extends BaseModel {
     this.dataAtualizacao =
         DateTime.fromMillisecondsSinceEpoch(ts.millisecondsSinceEpoch);
     this.gameTiposId = document.data[Games.GAMETIPOS_ID];
+    this.gameStatusId = document.data[Games.GAMESTATUS_ID];
     this.plataforma = document.data[Games.PLATAFORMA];
   }
 
@@ -36,7 +38,9 @@ class Games extends BaseModel {
     map[Games.NOME] = this.nome;
     map[Games.DATA_ATUALIZACAO] = this.dataAtualizacao;
     map[Games.GAMETIPOS_ID] = this.gameTiposId;
+    map[Games.GAMESTATUS_ID] = this.gameStatusId;
     map[Games.PLATAFORMA] = this.plataforma;
+  
 
     return map;
   }

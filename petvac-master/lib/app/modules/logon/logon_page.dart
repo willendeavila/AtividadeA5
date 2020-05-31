@@ -22,15 +22,15 @@ class _LogonPageState extends State<LogonPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Logon')),
+      appBar: AppBar(title: Text('Login')),
       body: Form(
         key: _formKey,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Container(
-              child: const Text('Test sign in with email and password'),
-              padding: const EdgeInsets.all(16),
+              child: const Text('Insira seus dados'),
+              padding: const EdgeInsets.all(2),
               alignment: Alignment.center,
             ),
             TextFormField(
@@ -46,7 +46,7 @@ class _LogonPageState extends State<LogonPage> {
             TextFormField(
               obscureText: true,
               controller: _passwordController,
-              decoration: const InputDecoration(labelText: 'Password'),
+              decoration: const InputDecoration(labelText: 'Senha'),
               validator: (String value) {
                 if (value.isEmpty) {
                   return 'Please enter some text';
@@ -63,7 +63,7 @@ class _LogonPageState extends State<LogonPage> {
                     _signInWithEmailAndPassword();
                   }
                 },
-                child: const Text('Submit'),
+                child: const Text('Login'),
               ),
             ),
             Container(

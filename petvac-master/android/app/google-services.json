@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "990681641622",
-    "firebase_url": "https://gamescheats2020.firebaseio.com",
-    "project_id": "gamescheats2020",
-    "storage_bucket": "gamescheats2020.appspot.com"
+    "project_number": "275919273497",
+    "firebase_url": "https://gamesfinal20.firebaseio.com",
+    "project_id": "gamesfinal20",
+    "storage_bucket": "gamesfinal20.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:990681641622:android:86faf68636fc2f77ae88b7",
+        "mobilesdk_app_id": "1:275919273497:android:68a5639d4f7e6df9477488",
         "android_client_info": {
           "package_name": "urt.edu.br"
         }
       },
       "oauth_client": [
         {
-          "client_id": "990681641622-imnmlmuf8dmnusfcjopmvn3d7jq0o6n2.apps.googleusercontent.com",
+          "client_id": "275919273497-mtua1f20tt2j4qm3jkv98irel72f9m20.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA8RZk4rcZUiSi-LbLF0cIQkFKtxTlM7KA"
+          "current_key": "AIzaSyBfPlAN9qKHBcZX4mGF_m2sXBMh17cjBNY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "990681641622-imnmlmuf8dmnusfcjopmvn3d7jq0o6n2.apps.googleusercontent.com",
+              "client_id": "275919273497-mtua1f20tt2j4qm3jkv98irel72f9m20.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

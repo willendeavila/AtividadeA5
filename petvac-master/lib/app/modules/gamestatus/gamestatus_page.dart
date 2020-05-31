@@ -1,23 +1,23 @@
+
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-import 'package:petvac/app/models/games_model.dart';
+import 'package:petvac/app/models/gamestatus_model.dart';
+import 'package:petvac/app/modules/gamestatus/gamestatus_bloc.dart';
 import 'package:petvac/app/utils/main_drawer.dart';
+import 'package:rxdart/rxdart.dart';
+import 'gamestatus_edit_page.dart';
 
-import 'games_bloc.dart';
-import 'games_edit_page.dart';
-
-class GamesPage extends StatefulWidget {
+class GameStatusPage extends StatefulWidget {
   final String title;
-  static const String route = '/games';
+  static const String route = '/gameStatus';
 
-  const GamesPage({Key key, this.title = "Games"}) : super(key: key);
+  const GameStatusPage({Key key, this.title = "Tipos de Status"}) : super(key: key);
 
   @override
-  _GamesPageState createState() => _GamesPageState();
+  _GameStatusPageState createState() => _GameStatusPageState();
 }
 
-class _GamesPageState extends State<GamesPage> {
-  var _bloc = GamesBloc();
+class _GameStatusPageState extends State<GameStatusPage> {
+  var _bloc = GameStatusBloc();
 
   @override
   Widget build(BuildContext context) {
@@ -29,50 +29,39 @@ class _GamesPageState extends State<GamesPage> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          var _games = Games()
-            ..nome = ""
-            ..gameTiposId = ""
-            ..plataforma = ""
-            ..dataAtualizacao = DateTime.now();
+          var _gameStatus = GameStatus()..nome = "";
 
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => GamesEditPage(_games),
+              builder: (context) => GameStatusEditPage(_gameStatus),
             ),
           );
         },
       ),
       body: Container(
-        child: StreamBuilder<List<Games>>(
-          stream: _bloc.getGames,
+        child: StreamBuilder<List<GameStatus>>(
+          stream: _bloc.getGameStatus,
           builder: (context, snapshot) {
             if (!snapshot.hasData) return CircularProgressIndicator();
 
             return Container(
               child: ListView(
                 children: snapshot.data.map(
-                  (_games) {
+                  (_gameStatus) {
                     return Dismissible(
-                      key: Key(_games.documentId()),
+                      key: Key(_gameStatus.documentId()),
                       onDismissed: (direction) {
-                        _bloc.delete(_games.documentId());
+                        _bloc.delete(_gameStatus.documentId());
                       },
                       child: ListTile(
-                        leading: CircleAvatar(
-            backgroundImage: NetworkImage('https://handmade.network/static/media/members/avatars/joystick.png'),
-          ),
-                        title: Text(_games.nome),
-                        /*subtitle: Text(new DateFormat("dd-MM-yyyy")
-                            .format(_games.dataAtualizacao)),*/
-                        subtitle: Text(_games.plataforma),
-
+                        title: Text(_gameStatus.nome),
                         trailing: Icon(Icons.keyboard_arrow_right),
                         onTap: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => GamesEditPage(_games),
+                              builder: (context) => GameStatusEditPage(_gameStatus),
                             ),
                           );
                         },

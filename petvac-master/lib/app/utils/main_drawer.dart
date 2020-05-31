@@ -79,6 +79,11 @@ class MainDrawer extends StatelessWidget {
             'Games',
             () => Navigator.pushReplacementNamed(context, Routes.games),
           ),
+          _addDrawerItem(
+            Icons.insert_chart,
+            'Tipos Status',
+            () => Navigator.pushReplacementNamed(context, Routes.gameStatus),
+          ),
         ],
       ),
     );

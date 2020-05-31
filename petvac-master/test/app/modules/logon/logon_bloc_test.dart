@@ -8,13 +8,13 @@ void main() {
   initModule(AppModule());
   LogonBloc bloc;
 
-  // setUp(() {
-  //     bloc = AppModule.to.bloc<LogonBloc>();
-  // });
+   setUp(() {
+       bloc = AppModule.to.bloc<LogonBloc>();
+   });
 
-  // group('LogonBloc Test', () {
-  //   test("First Test", () {
-  //     expect(bloc, isInstanceOf<LogonBloc>());
-  //   });
-  // });
+   group('LogonBloc Test', () {
+     test("First Test", () {
+       expect(bloc, isInstanceOf<LogonBloc>());
+     });
+   });
 }

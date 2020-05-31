@@ -2,22 +2,22 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:dio/dio.dart';
 
-import 'package:petvac/app/modules/games/games_repository.dart';
+import 'package:petvac/app/modules/gamestatus/gamestatus_repository.dart';
 
 class MockClient extends Mock implements Dio {}
 
 void main() {
-  GamesRepository repository;
+  GamestatusRepository repository;
   // MockClient client;
 
   setUp(() {
-    // repository = PetsRepository();
+    // repository = GamestatusRepository();
     // client = MockClient();
   });
 
-  group('GamesRepository Test', () {
+  group('GamestatusRepository Test', () {
     //  test("First Test", () {
-    //    expect(repository, isInstanceOf<PetsRepository>());
+    //    expect(repository, isInstanceOf<GamestatusRepository>());
     //  });
 
     test('returns a Post if the http call completes successfully', () async {

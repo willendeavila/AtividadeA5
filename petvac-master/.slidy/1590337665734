@@ -1,0 +1,4 @@
+lib/app/modules/gamestatus/gamestatus_page.dart
+test/app/modules/gamestatus/gamestatus_page_test.dart
+lib/app/modules/gamestatus/gamestatus_bloc.dart
+test/app/modules/gamestatus/gamestatus_bloc_test.dart

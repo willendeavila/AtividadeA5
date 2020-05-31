@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:petvac/app/models/games_model.dart';
 import 'package:petvac/app/models/gametipos_model.dart';
+import 'package:petvac/app/models/gamestatus_model.dart';
 import 'package:petvac/app/modules/games/games_bloc.dart';
 import 'package:petvac/app/modules/gametipos/gametipos_bloc.dart';
+import 'package:petvac/app/modules/gamestatus/gamestatus_bloc.dart';
 
 class GamesEditPage extends StatefulWidget {
   final Games games;
@@ -18,6 +20,8 @@ class _GamesEditPageState extends State<GamesEditPage> {
   TextEditingController _nomeController;
   final _bloc = GamesBloc();
   final _blocGameTipos = GameTiposBloc();
+  final _blocGameStatus = GameStatusBloc();
+
   final _dateFormat = DateFormat("dd/MM/yyyy");
 
   @override
@@ -35,7 +39,7 @@ class _GamesEditPageState extends State<GamesEditPage> {
       ),
       body: Container(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(1.0),
           child: ListView(
             children: <Widget>[
               Container(
@@ -45,7 +49,7 @@ class _GamesEditPageState extends State<GamesEditPage> {
                   onChanged: _bloc.setNome,
                 ),
               ),
-              Container(height: 6),
+              Container(height: 1),
               StreamBuilder<DateTime>(
                 stream: _bloc.outDataAtualizacao,
                 initialData: DateTime.now(),
@@ -68,7 +72,7 @@ class _GamesEditPageState extends State<GamesEditPage> {
                   );
                 },
               ),
-              Container(height: 6),
+              Container(height: 1),
               Container(
                 child: InputDecorator(
                   decoration: InputDecoration(
@@ -105,7 +109,45 @@ class _GamesEditPageState extends State<GamesEditPage> {
                       }),
                 ),
               ),
-              Container(height: 6),
+              Container(height: 1),
+
+              Container(
+                child: InputDecorator(
+                  decoration: InputDecoration(
+                    labelText: "Status Game",
+                  ),
+                  child: StreamBuilder<List<GameStatus>>(
+                      stream: _blocGameStatus.getGameStatus,
+                      builder: (context, snapshotGameStatus) {
+                        var _gameStatusId = _bloc.outGameStatusId == null ||
+                                _bloc.outGameStatusIdValue == ""
+                            ? snapshotGameStatus.data.first.documentId()
+                            : _bloc.outGameStatusIdValue;
+
+                        if (!snapshotGameStatus.hasData)
+                          return CircularProgressIndicator();
+
+                        return DropdownButton<String>(
+                          value: _gameStatusId,
+                          isExpanded: true,
+                          items:
+                              snapshotGameStatus.data.map((GameStatus _gameStatus) {
+                            return DropdownMenuItem<String>(
+                              value: _gameStatus.documentId(),
+                              child: Text(_gameStatus.nome),
+                            );
+                          }).toList(),
+                          onChanged: (String gameStatusId) {
+                            setState(() {
+                              _gameStatusId = gameStatusId;
+                              _bloc.setGameStatusId(gameStatusId);
+                            });
+                          },
+                        );
+                      }),
+                ),
+              ),
+              Container(height: 1),
               Container(
                 child: InputDecorator(
                   decoration: InputDecoration(
@@ -141,6 +183,7 @@ class _GamesEditPageState extends State<GamesEditPage> {
                   ),
                 ),
               ),
+              /*
               RaisedButton(
                 child: Text("Salvar"),
                 onPressed: () {
@@ -149,10 +192,24 @@ class _GamesEditPageState extends State<GamesEditPage> {
                   }
                 },
               ),
+              */
             ],
           ),
         ),
       ),
+
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.save),
+        onPressed: () {
+          if (_bloc.insertOrUpdate()) {
+            Navigator.pop(context);
+          }
+          
+        },
+      ),
+
+
+
     );
   }
 

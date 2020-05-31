@@ -8,13 +8,13 @@ void main() {
   initModule(HomeModule());
   HomeBloc bloc;
 
-  // setUp(() {
-  //     bloc = HomeModule.to.bloc<HomeBloc>();
-  // });
+   setUp(() {
+       bloc = HomeModule.to.bloc<HomeBloc>();
+   });
 
-  // group('HomeBloc Test', () {
-  //   test("First Test", () {
-  //     expect(bloc, isInstanceOf<HomeBloc>());
-  //   });
-  // });
+   group('HomeBloc Test', () {
+     test("First Test", () {
+       expect(bloc, isInstanceOf<HomeBloc>());
+     });
+   });
 }

@@ -2,22 +2,22 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:dio/dio.dart';
 
-import 'package:petvac/app/modules/gametipos/gametipos_repository.dart';
+import 'package:petvac/app/modules/games/games_repository.dart';
 
 class MockClient extends Mock implements Dio {}
 
 void main() {
-  GametiposRepository repository;
+  GamesRepository repository;
   // MockClient client;
 
   setUp(() {
-    // repository = GametiposRepository();
+    // repository = GamesRepository();
     // client = MockClient();
   });
 
-  group('GametiposRepository Test', () {
+  group('GamesRepository Test', () {
     //  test("First Test", () {
-    //    expect(repository, isInstanceOf<PettiposRepository>());
+    //    expect(repository, isInstanceOf<GamesRepository>());
     //  });
 
     test('returns a Post if the http call completes successfully', () async {

@@ -23,6 +23,7 @@ dependencies:
   rxdart: ^0.22.0
   bloc_pattern: ^2.5.1
   intl: ^0.16.1
+  audiofileplayer: ^1.3.1
   flutter:
     sdk: flutter
 
@@ -33,6 +34,7 @@ dev_dependencies:
   mockito: ^4.1.1
   flutter_test:
     sdk: flutter
+  
 
 
 # For information on the generic Dart part of this file, see the
@@ -52,6 +54,7 @@ flutter:
   #  - images/a_dot_ham.jpeg
   assets:
    - assets/images/
+   - assets/audios/SuperMario.mp3
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

@@ -1,3 +1,4 @@
+import 'package:petvac/app/modules/gamestatus/gamestatus_repository.dart';
 import 'package:petvac/app/modules/logon/logon_bloc.dart';
 import 'package:petvac/app/app_bloc.dart';
 import 'package:bloc_pattern/bloc_pattern.dart';
@@ -18,6 +19,7 @@ class AppModule extends ModuleWidget {
   List<Dependency> get dependencies => [
         Dependency((i) => GametiposRepository()),
         Dependency((i) => GamesRepository()),
+        Dependency((i) => GamestatusRepository()),
       ];
 
   @override
